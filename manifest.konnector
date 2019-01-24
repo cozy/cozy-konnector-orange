@@ -1,14 +1,17 @@
 {
-  "version": "1.0.1",
+  "version": "1.3.0",
   "name": "Orange Factures",
   "type": "konnector",
   "language": "node",
   "icon": "orange.svg",
   "slug": "orange",
-  "source": "git://github.com/konnectors/cozy-konnector-orange.git#build",
+  "source": "git://github.com/konnectors/cozy-konnector-orange.git",
   "editor": "Cozy",
   "vendor_link": "https://www.orange.fr/",
-  "categories": ["telecom", "isp"],
+  "categories": [
+    "telecom",
+    "isp"
+  ],
   "fields": {
     "login": {
       "type": "text"
@@ -23,7 +26,10 @@
       }
     }
   },
-  "time_interval": [15, 21],
+  "timeInterval": [
+    15,
+    21
+  ],
   "data_types": [
     "bill"
   ],
@@ -44,14 +50,18 @@
     "accounts": {
       "description": "Required to get the account's data",
       "type": "io.cozy.accounts",
-      "verbs": ["GET"]
+      "verbs": [
+        "GET"
+      ]
     }
   },
   "developer": {
     "name": "Cozy Cloud",
     "url": "https://cozy.io"
   },
-  "langs": ["fr"],
+  "langs": [
+    "fr"
+  ],
   "locales": {
     "fr": {
       "short_description": "Récupérer vos données Orange dans votre Cozy",
