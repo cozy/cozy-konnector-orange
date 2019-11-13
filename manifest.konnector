@@ -1,11 +1,11 @@
 {
-  "version": "1.3.0",
+  "version": "1.5.1",
   "name": "Orange Factures",
   "type": "konnector",
   "language": "node",
   "icon": "orange.svg",
   "slug": "orange",
-  "source": "git://github.com/konnectors/cozy-konnector-orange.git",
+  "source": "git@github.com:konnectors/cozy-konnector-orange.git",
   "editor": "Cozy",
   "vendor_link": "https://www.orange.fr/",
   "categories": [
@@ -26,9 +26,9 @@
       }
     }
   },
-  "timeInterval": [
-    15,
-    21
+  "time_interval": [
+    0,
+    23
   ],
   "data_types": [
     "bill"
@@ -49,10 +49,7 @@
     },
     "accounts": {
       "description": "Required to get the account's data",
-      "type": "io.cozy.accounts",
-      "verbs": [
-        "GET"
-      ]
+      "type": "io.cozy.accounts"
     }
   },
   "developer": {

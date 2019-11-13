@@ -1,14 +1,11 @@
 language: node_js
 node_js:
-- '8'
+- '12'
 env:
   global:
-  - GH_USER_EMAIL="travis@example.org"
-  - GH_USER_NAME="cozy-bot"
   - DEPLOY_REPOSITORY="git@github.com:konnectors/cozy-konnector-orange.git"
   - secure: Qe1ZWrDJoemkoqQS5JeJYpSRUeVWOFHgaz9RjdgI18mHD70JoWHdCWIhsY1yf9uG9pnWN/gb6G/ANNxDK83tEj/zvVam+KH56QUI1yHeWxrngax9ggyx5S6my1ozYPV5UylhpvYYNzg6lhCVe0aAMTayRzYw8ocRN72gdoFzWOjE/5XYD6lnMOY+XzKv7ag5Ui43kD3Q5AYv5jwEmzSOC/yREmjtT5ssFev3tghgZBYRstUnw9gknj6eAZX8Xmyc8xvn9dVIJfWY7QsE59FKu0Y7vuqlPXq3Pkcy5XesxPJTkhJ2jqfBu2pNk+vRgbd5wqpPx9EwwAORNOSBY92Fq6QmntDxLfSs237IX5JhZMN3zpCCR44BNWF/W1nGt0bIZbbW9ttvL5UzgI6Av/u4F6KM86OayF1JyHPWm82XLlbnnzwyrwUJhCvR2WNhznIFoKIj4yQ8dxQmWNu4xMh0a0yerFBfHteVJx8/dVJFOlXwJ12tB9F5R3xSIR6kEUGYXbL1PSlUvRWEZtxTbuGJySTdaS2X6niZb2OngKgDwi5QwYFIVEB4QTRrXhxjqyqqlL+5P6OWHZ84GRIGHrrUJy0ukd+x8hGjmXSFW609oiWBuB9V0iwfVPPvmbnAClG4RIzRcQXfIHAqGEZyfbX2PIWbymBiUsReY2SyPjxfOgM=
-  matrix:
-  - secure: JB80c6MnuDj55h1w+slGmiRmbV6WEXhPFLzvr+1IpS3ovuXCSRoKAm+sgM6ogo1QV5EoTxzEIHBGV+/b4hqEtur2YyhivAqZH0AQxyN45puRsR3CCnLI42bZsuUd3t+Y6IBeci6XcP4OYrXm6YTHCPZmotf/1OSMUM0yC72m7Fxt4K+Z13KG2ZpbGY//0q0Tmn5oMtWKkAdfiRID4hR0miesMLUR7WvQemG4cErlDXoIXeh16G3OYxYEuliYVRtjAk68VNrf+SKajMQ9Zk691CbPExAck/voknhtbnftbBCfkybp2DxzogWY/RQItDu22AzClwMCU40NpO61ppOXoBNDQUn9AlNJeJNxFAky0gUD5HuKlXf/AE1O2mcS1phZXmyDQUpYbPzZzrEJehJpE6miPx+l2q7N2PCCzDE2xli8jN41blfzaQf+qUMHQgMhzKlyvSAay9tTWx6DNT+MPpcy/1Je9wuTvm8UG3JdQpKQRtSuSKlGA1vWiOS9ERIA1nDfMqWek4sZB+yNraqfVZS3UY58Fonx+kEuSFwYXIFtGGkE5shllmFrr8udtY4rSoKnYCn8mtivvGfDejCbrERGzZRXQXeHO9AxQT5qQVn7TeqRNx148KrUGDm+tvOT81zF38j88wIRSUFH6C67UPvUOmxH38fUJIRjZauBUCw=
+  - secure: jP0IEozN/t8NQYoq5oIHisG2T6ejaDKbgyTQ09lPhAiRasldyQtCFudglyubKVcVqZFrSvCxR0EmXQ9pkvo0Ye6qpMJnJngxtrWRlReKCGqjU4U60dIOJiT7nMrAG2n7FF6M1/Yr6ChiGHk9CrehQPGftVWSoaAM90CShxnobsfdzbanHS1R9kkk8MZ8DBqkZHyqlAkA+b6xQrq4s/FFRgH4AmMYCaxWW7cYesPoSQyaq2ifIO0MtqrlPIo598NLgI7x7YZpXabFP04KKzFox6z4SqVJjW9sPrYsjK4DckO6Rdp1+MK/tlreuu5kcR+Gg04pmtL6KR7N3UloCoG2OebLAiFJYBW0WNayb7GmTNJxMqi54PG4TMnMH5r2g2d7TnP9cNK1KDqfY4m8JmFOAsxy2BUhYHgv8sw//2uPQfT04MWKQnOw92GAjANQVb7JXnPZiHKEstfOqGGaaJNBfRx90oikMAuVzjDkDIrTORgZEjm24PSonN5B8c8Xc09UxVtYdDq4c9HmuMke9we5GZ/I2F5ZoPnFzf+craHFDE2mXNUcbXjPwx5d7RnFqvm5ICp2kAriN5rwAFPozkdc68ShzzdpnRihHdV/R5UpCM+gH7QWdSI7Q3EIW68VaP7793SDObqJqaeVc3H4Bt2K7pJbT8SVO3EuiA2sgNfUE5Y=
 cache:
   yarn: true
   directories:
@@ -20,7 +17,6 @@ branches:
 script:
 - yarn lint
 - yarn build
-# - yarn run check
 deploy:
 - provider: script
   skip-cleanup: true
@@ -29,7 +25,7 @@ deploy:
     branch: master
 - provider: script
   skip-cleanup: true
-  script: DEPLOY_BRANCH=build yarn deploy && yarn cozyPublish
+  script: DEPLOY_BRANCH=build yarn deploy && yarn cozyPublish --postpublish mattermost
   on:
     tags: true
 before_install:
