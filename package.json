@@ -1,6 +1,6 @@
 {
   "name": "cozy-konnector-orange",
-  "version": "1.9.0",
+  "version": "1.11.0",
   "description": "",
   "repository": {
     "type": "git",
@@ -38,14 +38,14 @@
     "travisDeployKey": "./bin/generate_travis_deploy_key"
   },
   "dependencies": {
-    "cozy-konnector-libs": "4.32.1",
+    "cozy-konnector-libs": "4.32.2",
     "lodash": "4.17.15",
     "moment": "2.24.0"
   },
   "devDependencies": {
     "copy-webpack-plugin": "5.0.5",
     "cozy-app-publish": "0.20.0",
-    "cozy-jobs-cli": "1.10.5",
+    "cozy-jobs-cli": "1.10.6",
     "eslint-config-cozy-app": "1.3.3",
     "git-directory-deploy": "1.5.1",
     "husky": "3.1.0",

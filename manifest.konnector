@@ -1,6 +1,6 @@
 {
-  "version": "1.9.0",
-  "name": "Orange Factures",
+  "version": "1.11.0",
+  "name": "Orange",
   "type": "konnector",
   "language": "node",
   "icon": "orange.svg",
@@ -61,12 +61,12 @@
   ],
   "locales": {
     "fr": {
-      "short_description": "Récupérer vos données Orange dans votre Cozy",
-      "long_description": "Ce fournisseur vous permettra de récupérer l'ensemble de vos factures Orange dans votre Cozy."
+      "short_description": "Récupérer vos factures Orange et Sosh dans votre Cozy",
+      "long_description": "Ce connecteur récupère l'ensemble de vos factures Orange liées à vos contrats particuliers et professionnels.\n\nVos factures Sosh seront également récupérées.\n\n&nbsp;\n\n*A noter* : Ce connecteur ne fonctionne pas pour les contrats entreprises."
     },
     "en": {
-      "short_description": "Fetch your Orange data in your Cozy",
-      "long_description": "This provider will allow you to fetch all your Orange factures in your Cozy."
+      "short_description": "Fetch your Orange and Sosh data in your Cozy",
+      "long_description": "This connector will fetch all your Orange bills linked to individuals and professionals contracts.\n\nYour Sosh bills will also be fetch.\n\n&nbsp;\n\nNote: This connector do not work with companies contracts."
     }
   },
   "banksTransactionRegExp": "\\borange\\b",
