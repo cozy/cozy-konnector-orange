@@ -94,6 +94,10 @@ class OrangeConnector extends CookieKonnector {
         resolveWithFullResponse
       })
 
+      if (response.request.uri.href.includes('captcha')) {
+        throw new Error('CAPTCHA_RESOLUTION_FAILED')
+      }
+
       const headers = {
         'x-auth-id': response.headers['x-auth-id'],
         'x-xsrf-token': response.headers['x-xsrf-token']
